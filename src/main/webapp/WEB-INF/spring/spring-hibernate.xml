@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+    <bean id="hibernate4AnnotatedSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="monitorDatasource" />
+        <property name="annotatedClasses">
+            <list>
+                <value>com.conecta.monitor.dto.MonitorUser</value>
+                <value>com.conecta.monitor.dto.OsValues</value>
+                <value>com.conecta.monitor.dto.Request</value>
+                <value>com.conecta.monitor.dto.Response</value>
+                <value>com.conecta.monitor.dto.Rol</value>
+                <value>com.conecta.monitor.dto.Alert</value>
+                <value>com.conecta.monitor.dto.Infomessage</value>
+                <value>com.conecta.monitor.dto.Hardwarevaluesmessage</value>
+                <value>com.conecta.monitor.dto.Counter</value>
+                <value>com.conecta.monitor.dto.Server</value>
+                <value>com.conecta.monitor.dto.UserStatus</value>
+                <value>com.conecta.monitor.dto.ServerStatus</value>
+                <value>com.conecta.monitor.dto.HsmServer</value>
+                <value>com.conecta.monitor.dto.HsmServerStatus</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+                <!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>-->
+                <prop key="hibernate.hbm2ddl.auto">false</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
+            </props>
+        </property>
+    </bean>
+</beans>
