@@ -26,9 +26,9 @@ public class Usuarios implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_usuario")
 	private int idUsuario;
-	@Column(name = "usuario")
+	@Column(name = "user")
 	private String user;
-	@Column(name = "password")
+	@Column(name = "pass")
 	private String pass;
 	private Date cumple;
 	private String mail;
@@ -112,4 +112,13 @@ public class Usuarios implements Serializable {
 	public void setMapas(List<Mapas> mapas) {
 		this.mapas = mapas;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuarios [idUsuario=" + idUsuario + ", user=" + user
+				+ ", pass=" + pass + ", cumple=" + cumple + ", mail=" + mail
+				+ ", perfil=" + perfil + ", mapas=" + mapas + "]";
+	}
+	
+	
 }

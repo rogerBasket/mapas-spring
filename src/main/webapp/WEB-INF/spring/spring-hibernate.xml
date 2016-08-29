@@ -29,6 +29,8 @@
             <props>
                 <prop key="hibernate.dialect">${jdbc.dialect}</prop>
                 <prop key="hibernate.show_sql">true</prop>
+                <!-- propiedad establecida cuando no se usa @Transactional Spring -->
+                <prop key="hibernate.current_session_context_class">thread</prop>
             </props>
         </property>
     </bean>

@@ -6,8 +6,10 @@ import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.roger.hibernate.dao.MapasDAO;
 import com.roger.hibernate.dao.PerfilesDAO;
 import com.roger.hibernate.dao.UsuariosDAO;
+import com.roger.hibernate.dto.Mapas;
 import com.roger.hibernate.dto.Perfiles;
 import com.roger.hibernate.dto.Usuarios;
 import com.roger.services.UsuariosServices;
@@ -20,6 +22,9 @@ public class UsuariosServicesImpl implements UsuariosServices {
 	@Autowired
 	private PerfilesDAO perfilesDAOImpl;
 	
+	@Autowired
+	private MapasDAO mapasDAOImpl;
+	
 	@Override
 	public Object loginUsuario(Usuarios usuario) {
 		Usuarios u = null;
@@ -29,7 +34,8 @@ public class UsuariosServicesImpl implements UsuariosServices {
 			List<Usuarios> l = usuariosDAOImpl.readData(usuario);
 			if(l.size() == 1) {
 				u = l.get(0);
-				if(!u.getUser().equals(usuario.getUser()) || !u.getPass().equals(usuario.getPass())) {
+				System.out.println(u);
+				if(u.getUser().equals(usuario.getUser()) && u.getPass().equals(usuario.getPass())) {
 					if(u.getPerfil().getDescripcion().equals("administrador"))
 						resul = "admin";
 					else
@@ -37,7 +43,7 @@ public class UsuariosServicesImpl implements UsuariosServices {
 				}
 			}
 		} catch(HibernateException he) {
-			System.out.println(he);
+			he.printStackTrace();
 			resul = "error";
 		}
 				
@@ -57,10 +63,40 @@ public class UsuariosServicesImpl implements UsuariosServices {
 				resul = "usuario";
 			}
 		} catch(HibernateException he) {
-			System.out.println(he);
+			he.printStackTrace();
 			resul = "error";
 		}
 		
-		return resul;
+		return new Object[] {usuario,resul};
+	}
+
+	@Override
+	public Object mapasUsuario(Usuarios usuario) {
+		String resul = "listar_mapas";
+		List<Mapas> l = null;
+		
+		try {
+			l = mapasDAOImpl.listarByUsuario(usuario);
+		} catch(HibernateException he) {
+			he.printStackTrace();
+			resul = "error";
+		}
+		
+		return new Object[] {l,resul};
+	}
+
+	@Override
+	public Object contribuciones(Usuarios usuario) {
+		String resul = "contribuciones_mapas";
+		List<Mapas> l = null;
+		
+		try {
+			l = mapasDAOImpl.listarByNotUsuario(usuario);
+		} catch(HibernateException he) {
+			he.printStackTrace();
+			resul = "error";
+		}
+		
+		return new Object[] {l,resul};
 	}
 }

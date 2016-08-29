@@ -19,6 +19,8 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 	private SessionFactory sessionFactory;
 	
 	public void create(Usuarios usuario) throws HibernateException {
+		System.out.println(usuario);
+		
 		Session session = sessionFactory.getCurrentSession();
 		Transaction t = session.beginTransaction();
 		
@@ -36,9 +38,12 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 		return (Usuarios)session.get(Usuarios.class,usuario.getIdUsuario());
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked","unused"})
 	public List<Usuarios> readData(Usuarios usuario) throws HibernateException {
 		Session session = sessionFactory.getCurrentSession();
+		
+		Transaction t = session.beginTransaction();
+		
 		Query q = session.createQuery("from Usuarios u where u.user = :user");
 		
 		return q.setString("user",usuario.getUser()).list();

@@ -11,9 +11,10 @@
   <properties>
   	<java.version>1.6</java.version>
   	<spring.version>3.0.5.RELEASE</spring.version>
-  	<hibernate.version>4.2.0.Final</hibernate.version>
+  	<hibernate.version>3.6.10.Final</hibernate.version>
   	<servlet.version>3.0.1</servlet.version>
   	<mysql.version>5.1.6</mysql.version>
+  	<jstl.version>1.2</jstl.version>
   </properties>
   
   <dependencies>
@@ -97,6 +98,18 @@
 	    <groupId>mysql</groupId>
 	    <artifactId>mysql-connector-java</artifactId>
 	    <version>${mysql.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>${jstl.version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>javassist</groupId>
+	    <artifactId>javassist</artifactId>
+	    <version>3.12.1.GA</version>
 	</dependency>
   </dependencies>
   
