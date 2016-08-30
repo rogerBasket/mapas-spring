@@ -8,24 +8,24 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>mapbici</title>
-		<link rel="stylesheet" href="<:url value="/resources/estilos/estilo.css" />" type="text/css"/>
-		<link rel="stylesheet" href="<:url value="/resources/estilos/tabla.css" />" type="text/css"/>
+		<link rel="stylesheet" href="<c:url value="/resources/estilos/estilo.css" />" type="text/css"/>
+		<link rel="stylesheet" href="<c:url value="/resources/estilos/tabla.css" />" type="text/css"/>
 		
 		<!-- slides -->
 		<!-- add styles -->
-		<link rel="stylesheet" href="<:url value="/resources/estilos/slides.css" />" type="text/css"/>
+		<link rel="stylesheet" href="<c:url value="/resources/estilos/slides.css" />" type="text/css"/>
 		
 		<!-- add scripts -->
-		<script src="<:url value="/resources/calendario-js/js/jquery-1.8.3.js" />"></script>
-		<script type="text/javascript" src="<:url value="/resources/js/slider.js" />"></script>
-		<script type="text/javascript" src="<:url value="/resources/js/custom.js" />"></script>
+		<script src="<c:url value="/resources/calendario-js/js/jquery-1.8.3.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/resources/js/slider.js" />"></script>
+		<script type="text/javascript" src="<c:url value="/resources/js/custom.js" />"></script>
 	</head>
 	<body>
 		<div id="contiene">
 			<div id="datos">
 				<div id="titulo">
 					<h1>MapBici</h1>
-					<a href="home"><img class="logo" src="<:url value="/resources/images/logo.png" />"/></a>
+					<a href="home"><img class="logo" src="<c:url value="/resources/images/logo.png" />"/></a>
 				</div>
 				<div id="menu">
 					<ul id="navega">
@@ -40,7 +40,7 @@
 			<div id="slides-container">
 		        <div id="slides">
 					<div>
-						<div class="slide-image"><img src="<:url value="/resources/images/bici1.png" />"/></div>
+						<div class="slide-image"><img src="<c:url value="/resources/images/bici1.png" />"/></div>
 						<div class="slide-text">
 						    <h2>Costo de la bicicleta</h2>
 						    <p>El precio de una bici es accesible para la poblacion, no consume nada, no tienes que pagar un seguro, no hay que hacerle ningun arreglo, no te ponen multas de aparcamiento ni de velocidad.</p>
@@ -48,7 +48,7 @@
 					</div>
 					 
 					<div>
-						<div class="slide-image"><img src="<:url value="/resources/images/bici2.png" />"/></div>
+						<div class="slide-image"><img src="<c:url value="/resources/images/bici2.png" />"/></div>
 						<div class="slide-text">
 						    <h2>La Bici no contamina</h2>
 						    <p>Contribuye con el planeta, la bici es el medio de transporte mas ecologico que puedes utilizar en la ciudad. Ahorra emisiones de CO2 innecesarias. Por cada 3 kilometros en bici, se ahorra 1 kilo de CO2.</p>
@@ -56,7 +56,7 @@
 					</div>
 					 
 					<div>
-						<div class="slide-image"><img src="<:url value="/resources/images/bici3.png" />"/></div>
+						<div class="slide-image"><img src="<c:url value="/resources/images/bici3.png" />"/></div>
 						<div class="slide-text">
 						    <h2>Ir en bici es rapido</h2>
 						    <p>Para distancias de 7 kilometros o menos, es mas rapido ir en bici que en cualquier otro transporte. No tardaras en esperar al transporte publico ni en estacionarla.</p>
