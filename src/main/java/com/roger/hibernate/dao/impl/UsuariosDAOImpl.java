@@ -75,17 +75,23 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked","unused"})
 	public List<Usuarios> listar() {
 		Session session = sessionFactory.getCurrentSession();
+		
+		Transaction t = session.beginTransaction();
+		
 		Query q = session.createQuery("from Usuarios");
 		
 		return q.list();
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked","unused"})
 	public List<Usuarios> listarByPerfil(int perfil) {
 		Session session = sessionFactory.getCurrentSession();
+		
+		Transaction t = session.beginTransaction();
+		
 		Query q = session.createQuery("from Usuarios u where u.perfil = :perfil");
 		
 		return q.setInteger("perfil",perfil).list();

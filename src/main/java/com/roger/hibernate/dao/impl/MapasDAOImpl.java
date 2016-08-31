@@ -63,25 +63,34 @@ public class MapasDAOImpl implements MapasDAO {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked","unused"})
 	public List<Mapas> listar() {
 		Session session = sessionFactory.getCurrentSession();
+		
+		Transaction t = session.beginTransaction();
+		
 		Query q = session.createQuery("from Mapas");
 		
 		return q.list();
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked","unused"})
 	public List<Mapas> listarByUsuario(Usuarios usuario) {
 		Session session = sessionFactory.getCurrentSession();
+		
+		Transaction t = session.beginTransaction();
+		
 		Query q = session.createQuery("from Mapas m where m.usuario = :usuario");
 		
 		return q.setParameter("usuario",usuario).list();
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked","unused"})
 	public List<Mapas> listarByNotUsuario(Usuarios usuario) {
 		Session session = sessionFactory.getCurrentSession();
+		
+		Transaction t = session.beginTransaction();
+		
 		Query q = session.createQuery("from Mapas m where m.usuario != :usuario");
 		
 		return q.setParameter("usuario",usuario).list();

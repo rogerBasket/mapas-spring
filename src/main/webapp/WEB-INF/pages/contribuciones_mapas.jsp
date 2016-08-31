@@ -78,7 +78,7 @@
 							<th>Comentarios</th>
 						<tr>
 					<%
-						List<Mapas> mapas = (List<Mapas>)session.getAttribute("listaMapas");
+						List<Mapas> mapas = (List<Mapas>)request.getAttribute("listaMapas");
 						String url = "http://localhost:8080/mapas-spring/verMapa/usuarios/";
 						String disqus = "/#disqus_thread";
 						for(Mapas m: mapas) {

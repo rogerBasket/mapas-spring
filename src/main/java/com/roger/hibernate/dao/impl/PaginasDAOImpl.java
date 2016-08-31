@@ -62,9 +62,12 @@ public class PaginasDAOImpl implements PaginasDAO {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked","unused"})
 	public List<Paginas> listar() {
 		Session session = sessionFactory.getCurrentSession();
+		
+		Transaction t = session.beginTransaction();
+		
 		Query q = session.createQuery("from Paginas");
 		
 		return q.list();

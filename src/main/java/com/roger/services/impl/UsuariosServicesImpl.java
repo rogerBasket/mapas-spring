@@ -34,7 +34,7 @@ public class UsuariosServicesImpl implements UsuariosServices {
 			List<Usuarios> l = usuariosDAOImpl.readData(usuario);
 			if(l.size() == 1) {
 				u = l.get(0);
-				System.out.println(u);
+				//System.out.println(u);
 				if(u.getUser().equals(usuario.getUser()) && u.getPass().equals(usuario.getPass())) {
 					if(u.getPerfil().getDescripcion().equals("administrador"))
 						resul = "admin";

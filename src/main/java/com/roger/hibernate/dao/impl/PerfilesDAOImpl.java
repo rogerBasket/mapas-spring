@@ -36,9 +36,12 @@ public class PerfilesDAOImpl implements PerfilesDAO {
 		return (Perfiles)session.get(Perfiles.class,perfil.getIdPerfil());
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked","unused"})
 	public List<Perfiles> readId(Perfiles perfil) throws HibernateException {
 		Session session = sessionFactory.getCurrentSession();
+		
+		Transaction t = session.beginTransaction();
+		
 		Query q = session.createQuery("from Perfiles p where p.idPerfil = :idPerfil");
 		
 		return q.setInteger("idPerfil",perfil.getIdPerfil()).list();
@@ -70,9 +73,12 @@ public class PerfilesDAOImpl implements PerfilesDAO {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({"unchecked","unused"})
 	public List<Perfiles> listar() {
 		Session session = sessionFactory.getCurrentSession();
+		
+		Transaction t = session.beginTransaction();
+		
 		Query q = session.createQuery("from Perfiles");
 		
 		return q.list();

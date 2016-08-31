@@ -3,14 +3,11 @@ package com.roger.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.roger.hibernate.dto.Usuarios;
 
 @Controller
-@SessionAttributes("usuario")
 @RequestMapping("/")
 public class NavegacionController {
 
@@ -25,8 +22,9 @@ public class NavegacionController {
 	}
 	
 	@RequestMapping("home")
-	public String home(@ModelAttribute("usuario") Usuarios usuario) {
-		System.out.println(usuario);
+	public String home(HttpSession session) {
+		Usuarios usuario = (Usuarios)session.getAttribute("usuario");
+		
 		StringBuilder pagina = new StringBuilder();
 		pagina.append("redirect:");
 		
